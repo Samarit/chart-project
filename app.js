@@ -15,3 +15,5 @@ app.get('/api/answer', (req,res) => {
         res.json({message: 'yoyoyo'})
     }, 3000)
 })
+
+app.use('/api/binance', require('./routes/binance.routes'))

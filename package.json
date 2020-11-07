@@ -18,7 +18,8 @@
   "license": "ISC",
   "dependencies": {
     "config": "^3.3.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-binance-api": "^0.12.2"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
