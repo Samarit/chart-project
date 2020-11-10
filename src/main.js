@@ -1,15 +1,13 @@
-const elem = document.body.querySelector('h1')
-const elem2 = document.body.querySelector('h2')
+import { chartCandle, pushDatapoints} from './js/chart'
+import getChartData from './js/getChartData'
 
-setTimeout(() => {
-    elem.innerText = 'I`m ready as fuck'
-}, 2000)
-
-async function test () {
-    let fetched = await fetch('/api/answer')
-    let data = await fetched.json()
-    console.log(data.message);
-    elem2.innerText = data.message
+async function updateChart() {
+    try {
+        const data = await getChartData('ETHUSDT', '5m')
+        pushDatapoints(data)
+        chartCandle.render()
+    } catch (error) {
+        
+    }
 }
-
-test()
+updateChart()

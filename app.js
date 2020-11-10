@@ -9,11 +9,4 @@ app.listen(port, (req, res) => {
     console.log(`Server is running on port ${port}`);
 })
 
-
-app.get('/api/answer', (req,res) => {
-    setTimeout(() => {
-        res.json({message: 'yoyoyo'})
-    }, 3000)
-})
-
 app.use('/api/binance', require('./routes/binance.routes'))

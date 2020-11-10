@@ -27,12 +27,16 @@ router.get('/tickerData/:symbol', async (req, res) => {
 })
 
 router.get('/candlesticks/:symbol/:interval', async (req, res) => {
-    const symbol = req.params.symbol
-    const interval = req.params.interval
-    const candlesticks = await binance.candlesticks(symbol, interval, (error, ticks) => {
-        console.log(`${symbol} ${interval} data recieved`);
-        res.send(ticks)
-    })
+    try {
+        const symbol = req.params.symbol
+        const interval = req.params.interval
+        const candlesticks = await binance.candlesticks(symbol, interval, (error, ticks) => {
+            console.log(`${symbol} ${interval} data recieved`);
+            res.send(ticks)
+        })
+    } catch (e) {
+        res.status(500).json({message: `Something went wrong with getting candlestickes data! ${e}`})
+    }
 })
 
 
