@@ -1,11 +1,12 @@
-import { chartCandle, pushDatapoints} from './js/chart'
+import { chartCandle, pushChartDatapoints} from './chart.models.js/chart'
 import getChartData from './js/getChartData'
 
 async function updateChart() {
     try {
-        const data = await getChartData('ETHUSDT', '5m')
-        pushDatapoints(data)
+        const data = await getChartData()
+        pushChartDatapoints(data)
         chartCandle.render()
+        console.log(chartCandle);
     } catch (error) {
         
     }
