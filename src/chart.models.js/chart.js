@@ -9,34 +9,26 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         title: {
             text: 'Chart'
         },
-        height: 500,
+        height: 300,
         data: [{
             type: 'candlestick',
             dataPoints: dataPoints
         }]
-    },
-    {
+    },{
         title: {
             text: 'Volume'
         },
-        height: 200,
+        height: 100,
         data: [{
             dataPoints: dataPointsVolume
         }]
     }
     ],
     rangeSelector: {
-        buttons: [
-            {
-                range: 1,
-                rangeType: 'day',
-                label: '1day'
-            }, {
-                range: 2,
-                rangetype: 'day',
-                label: '2day'
-            }
-        ]
+        enabled: false
+    },
+    navigator: {
+        enabled: false
     }
 })
 
