@@ -6,17 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="chart-container"></div>
-    <div id='btn-bar'>
-        <div id="line">Line</div>
-        <div id="5m">5m</div>
-        <div id="15m">15m</div>
-        <div id="1h">1h</div>
-        <div id="4h">4h</div>
-        <div id="12h">12h</div>
-        <div id="1d">1D</div>
-        <div id="1w">1W</div>
-        <div id="all">All</div>
+    <div id="chart-wrapper">
+        <div id="chart-container"></div>
+        <div id="bar-wrapper">
+            <div id='chart-timebar'>
+                <button class="btn" id="line">Line</button>
+                <button class="btn" id="5m">5m</button>
+                <button class="btn" id="15m">15m</button>
+                <button class="btn" id="1h">1h</button>
+                <button class="btn" id="4h">4h</button>
+                <button class="btn" id="12h">12h</button>
+                <button class="btn" id="1d">1D</button>
+                <button class="btn" id="1w">1W</button>
+                <button class="btn" id="1M">1M</button>
+            </div>
+            <div id="chart-scalebar">
+                <button class="btn">100</button>
+                <button class="btn">300</button>
+                <button class="btn">500</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

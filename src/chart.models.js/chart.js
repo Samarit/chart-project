@@ -33,6 +33,9 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
 })
 
 export function pushChartDatapoints(data) {
+    dataPoints.length = 0
+    dataPointsVolume.length = 0
+    
     for (let point of data) {
         dataPoints.push({
             x: new Date(point[0]),
