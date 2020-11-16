@@ -1,25 +1,44 @@
 const CanvasJS = require('./canvasjs.stock.min.js')
 
+const container = document.getElementById('chart-container') 
+let chartHeight = container.offsetHeight
+
 let dataPoints = []
 let dataPointsVolume = []
 
+const noop = () => {return ''}
 
 export const chartCandle = new CanvasJS.StockChart('chart-container', {
     charts: [{
         title: {
             text: 'Chart'
         },
-        height: 300,
+        height: chartHeight * 0.75,
+        axisX: {
+            labelFormatter: noop,
+            tickLength: 0,
+            tickThickness: 0,
+            gridThickness: 0,
+            lineThickness: 0
+        },
         data: [{
             type: 'candlestick',
             dataPoints: dataPoints
         }]
     },{
         title: {
-            text: 'Volume'
+            text: ''
         },
-        height: 100,
+        height: chartHeight * 0.15,
+        axisX: {
+            labelFormatter: noop,
+            tickLength: 0,
+            tickThickness: 0,
+            gridThickness: 0,
+            lineThickness: 0
+        },
         data: [{
+            type: 'column',
             dataPoints: dataPointsVolume
         }]
     }
@@ -28,7 +47,12 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         enabled: false
     },
     navigator: {
-        enabled: false
+        enabled: true,
+        dynamicUpdate: false,
+        height: chartHeight * 0.1,
+        axisX: {
+            valueFormatString: 'MMM DD'
+        }
     }
 })
 

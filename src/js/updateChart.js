@@ -6,8 +6,7 @@ export default async function updateChart() {
         const data = await getChartData()
         pushChartDatapoints(data)
         chartCandle.render()
-        console.log(chartCandle);
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
 }
