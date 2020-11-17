@@ -1,5 +1,4 @@
-import chartState from "../chart.models.js/chartState"
-import getChartData from "./getChartData"
+import chartState from "../../chart.models.js/chartState"
 import updateChart from "./updateChart"
 
 
@@ -11,5 +10,5 @@ export default function chartTimeHandler(event) {
     }
     chartState.timeframe = event.target.id
     updateChart()
-    console.log(chartState);
+    console.log('State: ', chartState)
 }

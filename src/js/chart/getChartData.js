@@ -1,4 +1,4 @@
-import chartState from "../chart.models.js/chartState"
+import chartState from "../../chart.models.js/chartState"
 
 export default async function getChartData(
     symbol = chartState.symbol, 
