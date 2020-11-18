@@ -10,45 +10,46 @@
         <div id="chart-container"></div>
         <div id="bar-wrapper">
             <div id='chart-timebar'>
-                <button class="btn" id="line">Line</button>
-                <button class="btn" id="5m">5m</button>
-                <button class="btn" id="15m">15m</button>
-                <button class="btn" id="1h">1h</button>
-                <button class="btn" id="4h">4h</button>
-                <button class="btn" id="12h">12h</button>
-                <button class="btn" id="1d">1D</button>
-                <button class="btn" id="1w">1W</button>
-                <button class="btn" id="1M">1M</button>
+                <button class="btn" data-id="line">Line</button>
+                <button class="btn" data-id="5m">5m</button>
+                <button class="btn" data-id="15m">15m</button>
+                <button class="btn" data-id="1h">1h</button>
+                <button class="btn" data-id="4h">4h</button>
+                <button class="btn" data-id="12h">12h</button>
+                <button class="btn" data-id="1d">1D</button>
+                <button class="btn" data-id="1w">1W</button>
+                <button class="btn" data-id="1M">1M</button>
             </div>
             <div id="chart-scalebar">
-                <button class="btn" id="100">100</button>
-                <button class="btn" id="300">300</button>
-                <button class="btn" id="500">500</button>
+                <button class="btn" data-id="100">100</button>
+                <button class="btn" data-id="300">300</button>
+                <button class="btn" data-id="500">500</button>
             </div>
         </div>
     </div>
 
     <div id="tickerbar-wrapper">
         <div id="tickerbar">
-            <div class="ticker" id="btcusdt">
+            <div class="ticker" data-id="btcusdt">
                 <span>BTC/USDT</span>
             </div>
-            <div class="ticker" id="ethusdt">
+            <div class="ticker" data-id="ethusdt">
                 <span>ETH/USDT</span>
             </div>
-            <div class="ticker" id="vetusdt">
+            <div class="ticker" data-id="vetusdt">
                 <span>VET/USDT</span>
             </div>
-            <div class="ticker" id="neousdt">
+            <div class="ticker" data-id="neousdt">
                 <span>NEO/USDT</span>
             </div>
-            <div class="ticker" id="enjusdt">
+            <div class="ticker" data-id="enjusdt">
                 <span>ENJ/USDT</span>
             </div>
-            <div class="ticker" id="bnbusdt">
+            <div class="ticker" data-id="bnbusdt">
                 <span>BNB/USDT</span>
             </div>
         </div>
+        <div class="ticker" id="ticker-add">ADD</div>
     </div>
 </body>
 </html>

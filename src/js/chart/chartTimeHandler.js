@@ -8,7 +8,8 @@ export default function chartTimeHandler(event) {
     if (event.target === this) {
         return false
     }
-    chartState.timeframe = event.target.id
+    chartState.timeframe = event.target.dataset.id
+    
     updateChart()
     console.log('State: ', chartState)
 }
