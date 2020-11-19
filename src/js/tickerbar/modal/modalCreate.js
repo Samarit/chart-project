@@ -1,6 +1,6 @@
 const modalCreate = function(buttons = []) {
     const $modal = _createModal(buttons)
-    let closing = false
+    const ANIMATION_SPEED = 250
 
     return {
         open() {
@@ -8,8 +8,11 @@ const modalCreate = function(buttons = []) {
         },
         close() {
             $modal.classList.remove('open')
-            closing = true
             $modal.classList.add('hide')
+            setTimeout(() => {
+                $modal.classList.remove('hide')
+            }, ANIMATION_SPEED)
+            
         }
     }
 }
@@ -22,12 +25,12 @@ Element.prototype.appendAfter = function (element) { // All elements now have th
 
 const _createModal = function(buttons) {
     const modal = document.createElement('div')
+    
     modal.classList.add('modal')
-    const DEFAULT_WIDTH = '200px'
 
     modal.insertAdjacentHTML('afterbegin', `
     <div class="modal-overlay" data-close="true">
-        <div class="modal-window" style="width: ${DEFAULT_WIDTH}">
+        <div class="modal-window">
             <div class="modal-header">
                 <span class="modal-title">Choose pair:</span>
             </div>

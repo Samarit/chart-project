@@ -23,8 +23,6 @@ export default function tickerCreate() {
             }
         ])
 
-        setTimeout(() => {
             modal.open()
-        }, 100)
     })
 }
