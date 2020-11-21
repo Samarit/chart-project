@@ -1,0 +1,41 @@
+.modal-window, .modal-overlay
+    opacity: 0
+    z-index: -1
+
+.modal.open .modal-overlay,
+.modal.open .modal-window
+    opacity: 1
+    z-index: 1
+
+.modal.hide .modal-overlay,
+.modal.hide .modal-window
+    opacity: 1
+    z-index: 1
+
+.modal.open .modal-overlay
+    background: rgba(0, 0, 0, 0.5)
+
+.modal.open .modal-window
+    animation: show 250ms ease-in
+
+@keyframes show
+    from
+        transform: scale(0)
+        z-index: -1
+    to
+        transform: scale(1)
+        z-index: 2
+
+.modal.hide .modal-window
+    animation: hide 250ms ease-in
+
+.modal.hide .modal-overlay
+    opacity: 0
+
+@keyframes hide
+    from
+        transform: scale(1)
+        z-index: 2
+    to
+        transform: scale(0)
+        z-index: -1

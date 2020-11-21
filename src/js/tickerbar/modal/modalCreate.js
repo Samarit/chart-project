@@ -11,6 +11,7 @@ const modalCreate = function(buttons = []) {
             $modal.classList.add('hide')
             setTimeout(() => {
                 $modal.classList.remove('hide')
+                $modal.remove()
             }, ANIMATION_SPEED)
             
         }
@@ -35,7 +36,16 @@ const _createModal = function(buttons) {
                 <span class="modal-title">Choose pair:</span>
             </div>
             <div class="modal-body" data-input="true">
-                Body test text
+                <div class="select-container">
+                    <select>
+                        <option>loh</option>
+                        <option>loh2</option>
+                    </select>
+                    <select>
+                        <option>loh3</option>
+                        <option>loh4</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
