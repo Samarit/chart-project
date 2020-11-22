@@ -18,7 +18,7 @@ export default function tickerCreate() {
                 handler () {
                     console.log('rejected')
                     modal.close()
-                    reject()
+                    reject(error)
                 }
             }
         ])

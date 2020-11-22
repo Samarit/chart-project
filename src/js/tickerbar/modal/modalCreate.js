@@ -1,3 +1,5 @@
+import modalNames from "./modalNames"
+
 const modalCreate = function(buttons = []) {
     const $modal = _createModal(buttons)
     const ANIMATION_SPEED = 250
@@ -29,6 +31,8 @@ const _createModal = function(buttons) {
     
     modal.classList.add('modal')
 
+
+
     modal.insertAdjacentHTML('afterbegin', `
     <div class="modal-overlay" data-close="true">
         <div class="modal-window">
@@ -36,24 +40,22 @@ const _createModal = function(buttons) {
                 <span class="modal-title">Choose pair:</span>
             </div>
             <div class="modal-body" data-input="true">
-                <div class="select-container">
-                    <select>
-                        <option>loh</option>
-                        <option>loh2</option>
-                    </select>
-                    <select>
-                        <option>loh3</option>
-                        <option>loh4</option>
-                    </select>
-                </div>
+                <div class="select-container"></div>
             </div>
         </div>
     </div>
     `)
 
+    const selectContainer = modal.querySelector('.select-container')
+    const select1 = _createModalSelect(modalNames[0])
+    const select2 = _createModalSelect(modalNames[1])
+    selectContainer.append(select1)
+    selectContainer.append(select2)
+
     const footer = _createModalFooter(buttons)
     footer.appendAfter(modal.querySelector('[data-input]'))
-    document.body.appendChild(modal)
+    document.body.append(modal)
+
     return modal
 }
 
@@ -75,6 +77,19 @@ const _createModalFooter = function(buttons) {
     })
 
     return footer
+}
+
+function  _createModalSelect(data) {
+    const select = document.createElement('select')
+
+    data.forEach(symb => {
+        const option = document.createElement('option')
+        option.value = symb
+        option.innerText = symb
+        select.append(option)
+    })
+
+    return select
 }
 
 export default modalCreate

@@ -13,7 +13,8 @@ export function tickerAddHandler (event) {
             ticker.dataset.id = 'test'
             tickerbar.append(ticker)
         })
-        .catch(() => {
+        .catch((error) => {
             console.log('canceled')
+            console.log(error)
         })
 } 
