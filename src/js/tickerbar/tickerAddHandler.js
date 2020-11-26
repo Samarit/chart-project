@@ -11,8 +11,8 @@ export function tickerAddHandler (event) {
         .then(() => {
             const select1 = document.querySelector('[data-select-primary]')
             const select2 = document.querySelector('[data-select-secondary]')
-            const value1 = select1.dataset.selectPrimary.toLowerCase()
-            const value2 = select2.dataset.selectSecondary.toLowerCase()
+            const value1 = select1.value.toLowerCase()
+            const value2 = select2.value.toLowerCase()
             
             let ticker = document.createElement('div')
             ticker.classList.add('ticker')

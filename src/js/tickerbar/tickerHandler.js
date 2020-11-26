@@ -2,9 +2,8 @@ import chartState from "../../chart.models.js/chartState"
 import updateChart from "../chart/updateChart"
 
 export default function tickerHandler (event) {
-    if (event.target === this) return false
-    
-    const symbol = event.target.dataset.id
+    const symbol = this.dataset.id
+    console.log(this)
     chartState.symbol = symbol.toUpperCase()
 
     updateChart()
