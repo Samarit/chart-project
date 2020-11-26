@@ -1,12 +1,12 @@
 import modalCreate from "./modal/modalCreate";
 
-export default function tickerCreate() {
+export default function tickerCreateModal() {
     return new Promise ((resolve, reject) => {
         const modal = modalCreate([
             {
                 type: 'confirm',
                 text: 'Ok',
-                handler () {
+                handler (event) {
                     console.log('confirmed')
                     modal.close()
                     resolve()

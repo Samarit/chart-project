@@ -31,8 +31,6 @@ const _createModal = function(buttons) {
     
     modal.classList.add('modal')
 
-
-
     modal.insertAdjacentHTML('afterbegin', `
     <div class="modal-overlay" data-close="true">
         <div class="modal-window">
@@ -49,8 +47,9 @@ const _createModal = function(buttons) {
     const selectContainer = modal.querySelector('.select-container')
     const select1 = _createModalSelect(modalNames[0])
     const select2 = _createModalSelect(modalNames[1])
-    selectContainer.append(select1)
-    selectContainer.append(select2)
+    select1.dataset.selectPrimary = 'XRP'
+    select2.dataset.selectSecondary = 'BTC'
+    selectContainer.append(select1, select2)
 
     const footer = _createModalFooter(buttons)
     footer.appendAfter(modal.querySelector('[data-input]'))
