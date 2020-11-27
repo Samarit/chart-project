@@ -18,11 +18,11 @@ export default function tickerCreateModal() {
                 handler () {
                     console.log('rejected')
                     modal.close()
-                    reject(error)
+                    reject(new Error)
                 }
             }
         ])
 
-            modal.open()
+        modal.open()
     })
 }
