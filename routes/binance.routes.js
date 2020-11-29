@@ -3,22 +3,12 @@ const router = Router()
 const Binance = require('node-binance-api')
 const binance = new Binance()
 
-router.get('/tickerData', async (req, res) => {
-    try {
-        const ticker = await binance.prices()
-        console.log('tickerData fetched');
-        res.send(ticker)
-    } catch (e) {
-        res.status(500).json({message: `Something went wrong with getting tickerData! ${e}`})
-    }
-})
 
 router.get('/tickerData/:symbol', async (req, res) => {
     try {
-        const symbol = req.params.symbol
-        const ticker = await binance.prices(symbol, (error, ticker) => {
-            console.log(`${symbol} price: ${ticker[symbol]}`)
-            res.send(ticker)
+        const symbol = req.params.symbol.toUpperCase()
+        binance.prevDay(symbol, (error, prevDay) => {
+            res.send(prevDay)
         })
         
     } catch (e) {
