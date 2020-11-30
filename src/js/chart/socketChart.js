@@ -2,20 +2,12 @@ import { chartCandle } from "../../chart.models.js/chart";
 import chartState from "../../chart.models.js/chartState";
 
 export default function socketChart() {
-    let opened = false
-    let socket = new WebSocket(`wss://stream.binance.com:9443/ws/${chartState.symbol.toLowerCase()}@kline_${chartState.timeframe}`)
-
-    socket.onmessage = _onMsg
-
-    socket.onclose = () => console.log('socketChart closed')
+    let socket = {}
 
     return {
-        close() {
-            opened && socket.close()
-        },
         open() {
+            socket.close && socket.close()
             socket = new WebSocket(`wss://stream.binance.com:9443/ws/${chartState.symbol.toLowerCase()}@kline_${chartState.timeframe}`)
-            opened = true
             socket.onmessage = _onMsg
 
             socket.onclose = () => console.log('socketChart closed')

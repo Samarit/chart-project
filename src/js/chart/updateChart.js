@@ -7,8 +7,6 @@ const socket = socketChart()
 
 export default async function updateChart() {
     try {
-        socket.close()
-
         const data = await getChartData()
         pushChartDatapoints(data)
         
