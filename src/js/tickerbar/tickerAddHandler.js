@@ -1,7 +1,7 @@
 import tickerAddContent from "./tickerAddContent"
 import tickerCreateModal from "./tickerCreateModal"
 import tickerClickHandler from "./tickerClickHandler"
-import SocketTicker from "./socket/SocketTicker"
+import socketTicker from "./socket/socketTicker"
 import tickerDataFetch from "./tickerDataFetch"
 
 const tickerbar = document.getElementById('tickerbar')
@@ -26,7 +26,7 @@ export function tickerAddHandler (event) {
 
             tickerDataFetch(ticker)
 
-            const socket = new SocketTicker(ticker, value1 + value2)
+            socketTicker(ticker, value1 + value2)
 
             tickerbar.append(ticker)
         })

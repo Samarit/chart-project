@@ -47,8 +47,8 @@ const _createModal = function(buttons) {
     const selectContainer = modal.querySelector('.select-container')
     const select1 = _createModalSelect(modalNames[0])
     const select2 = _createModalSelect(modalNames[1])
-    select1.dataset.selectPrimary = 'XRP'
-    select2.dataset.selectSecondary = 'BTC'
+    select1.dataset.selectPrimary = true
+    select2.dataset.selectSecondary = true
     selectContainer.append(select1, select2)
 
     const footer = _createModalFooter(buttons)
@@ -87,7 +87,7 @@ function  _createModalSelect(data) {
         option.innerText = symb
         select.append(option)
     })
-
+    
     return select
 }
 

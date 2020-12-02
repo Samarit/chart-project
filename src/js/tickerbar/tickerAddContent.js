@@ -1,7 +1,9 @@
+import icons from "../icons/icons";
+
 export default function tickerAddContent (value1, value2) {
     return `
     <div class="ticker-title">
-        <div class="ticker-logo"></div>
+        <div class="ticker-logo">${icons[value1.toUpperCase()]}</div>
         <div class="ticker-label">${value1.toUpperCase()}/${value2.toUpperCase()}</div>
     </div>
     <div class="ticker-price">
@@ -14,4 +16,5 @@ export default function tickerAddContent (value1, value2) {
     </div>
     `
 }
+
 

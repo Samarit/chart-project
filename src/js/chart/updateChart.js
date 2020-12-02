@@ -9,9 +9,9 @@ const loader = document.getElementById('loader')
 export default async function updateChart() {
     try {
         loader.style.display = 'flex'
+
         const data = await getChartData()
         pushChartDatapoints(data)
-        
         chartCandle.options.charts[0].title.text = chartState.symbol
         chartCandle.render()
 

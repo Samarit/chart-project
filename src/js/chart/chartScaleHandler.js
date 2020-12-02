@@ -7,6 +7,5 @@ export default function chartScaleHandler (event) {
     if (event.target === this) return false
 
     chartState.limit = +event.target.dataset.id
-    console.log(chartState);
     updateChart()
 }

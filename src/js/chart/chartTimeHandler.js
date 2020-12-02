@@ -11,5 +11,4 @@ export default function chartTimeHandler(event) {
     chartState.timeframe = event.target.dataset.id
     
     updateChart()
-    console.log('State: ', chartState)
 }

@@ -1,9 +1,22 @@
 const modalNames = [
     [
-        'XRP',
-        'IOTA',
+        'ADA',
+        'BCH',
+        'BNB',
+        'BTC',
+        'DOT',
+        'ENJ',
+        'EOS',
+        'ETH',
+        'LINK',
+        'LTC',
+        'MIOTA',
         'NANO',
-        'BTC'
+        'NEO',
+        'TRX',
+        'VET',
+        'XLM',
+        'XRP',
     ],
     [
         'BTC',
