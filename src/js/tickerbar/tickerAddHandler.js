@@ -21,11 +21,15 @@ export function tickerAddHandler (event) {
             let ticker = document.createElement('div')
             ticker.classList.add('ticker')
             ticker.dataset.id = value1 + value2
+            ticker.dataset.symbol = value1
             ticker.innerHTML = tickerAddContent(value1, value2)
+
+            const logo = ticker.querySelector('.ticker-logo')
+            logo.style.backgroundImage = "url('../../assets/icons/" + value1.toUpperCase() + ".svg')"
+
             ticker.addEventListener('click', tickerClickHandler)
 
             tickerDataFetch(ticker)
-
             socketTicker(ticker, value1 + value2)
 
             tickerbar.append(ticker)

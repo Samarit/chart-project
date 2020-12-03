@@ -11,7 +11,8 @@ module.exports = {
     devServer:{
         port: 3000,
         proxy: {
-            '/api': 'http://localhost:7777'
+            '/api': 'http://localhost:7777',
+            '/icons': 'http://localhost:7777'
         }
     } ,
     plugins: [
