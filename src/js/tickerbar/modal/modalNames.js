@@ -10,7 +10,7 @@ const modalNames = [
         'ETH',
         'LINK',
         'LTC',
-        'MIOTA',
+        'IOTA',
         'NANO',
         'NEO',
         'TRX',

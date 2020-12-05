@@ -24,6 +24,20 @@ function _onMsg(message) {
     datapoints[datapoints.length - 1].y[1] = Number(data.k.h) // high
     datapoints[datapoints.length - 1].y[2] = Number(data.k.l) // low
     datapoints[datapoints.length - 1].y[3] = Number(data.k.c) // close
+
+    // If kline closed - push new candlestick to datapoints
+    if (data.k.x) {
+        console.log('Closing kline...')
+        console.log('TEST1', datapoints)
+        datapoints.shift()
+        console.log('TEST1', datapoints)
+        datapoints.push({
+            x: new Date(data.k.T), //Closed time of this kline + 1 sec for next kline
+            y: [] // This array will be filled in next socket message
+        })
+        console.log('TEST1', datapoints)
+    }
+    console.log(datapoints)
     console.log('socket')
     chartCandle.render()
 }

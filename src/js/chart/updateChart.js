@@ -19,6 +19,7 @@ export default async function updateChart() {
 
         socket.open()
         
+        console.log(chartState)
         console.log(chartCandle)
     } catch (error) {
         console.log(error)

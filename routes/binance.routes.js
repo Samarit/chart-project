@@ -22,7 +22,7 @@ router.get('/candlesticks/:symbol/:timeframe/:limit', async (req, res) => {
         const timeframe = req.params.timeframe
         const limit = +req.params.limit
 
-        const candlesticks = await binance.candlesticks(symbol, timeframe, (error, ticks) => {
+        binance.candlesticks(symbol, timeframe, (error, ticks) => {
             console.log(`${symbol} ${timeframe} ${limit} data recieved`);
             res.send(ticks)
         }, {limit: limit})

@@ -20,12 +20,14 @@ export function tickerAddHandler (event) {
 
             let ticker = document.createElement('div')
             ticker.classList.add('ticker')
+            ticker.id = value1
             ticker.dataset.id = value1 + value2
             ticker.dataset.symbol = value1
             ticker.innerHTML = tickerAddContent(value1, value2)
 
             const logo = ticker.querySelector('.ticker-logo')
-            logo.style.backgroundImage = "url('../../assets/icons/" + value1.toUpperCase() + ".svg')"
+            const url = `../../assets/icons/${value1.toUpperCase()}.svg`
+            logo.style.backgroundImage = `url(${url})`
 
             ticker.addEventListener('click', tickerClickHandler)
 
