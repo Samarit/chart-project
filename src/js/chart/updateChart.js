@@ -21,6 +21,7 @@ export default async function updateChart() {
         
         console.log(chartState)
         console.log(chartCandle)
+        
     } catch (error) {
         console.log(error)
     }
