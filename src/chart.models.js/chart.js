@@ -64,15 +64,15 @@ export function pushChartDatapoints(data) {
         dataPoints.push({
             x: new Date(point[0]),
             y: [
-                Number(point[1]),
-                Number(point[2]),
-                Number(point[3]),
-                Number(point[4])
+                Number(point[1]), // open
+                Number(point[2]), // low
+                Number(point[3]), // high
+                Number(point[4])  // close
             ]
         })
         dataPointsVolume.push({
             x: new Date(point[0]),
-            y: Number(point[5])
+            y: Number(point[7]) // Asset volume in data
         })
     }
 }
