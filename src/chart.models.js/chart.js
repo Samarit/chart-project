@@ -1,4 +1,8 @@
 const CanvasJS = require('./canvasjs.stock.min.js')
+CanvasJS.addColorSet("defaultColorSet", [//colorSet Array
+    "#19FF00",
+    "#FF1900"
+  ])
 
 const container = document.getElementById('chart-container') 
 let chartHeight = container.offsetHeight
@@ -23,7 +27,10 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         },
         data: [{
             type: 'candlestick',
-            dataPoints: dataPoints
+            dataPoints: dataPoints,
+            color: 'grey',
+            risingColor: '#7d7',
+            fallingColor: 'red'
         }]
     },{
         title: {
@@ -53,7 +60,9 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         axisX: {
             valueFormatString: 'MMM DD'
         }
-    }
+    },
+    //colorSet: "defaultColorSet",
+    theme: "dark2"
 })
 
 export function pushChartDatapoints(data) {
