@@ -9,6 +9,7 @@ let chartHeight = container.offsetHeight
 
 let dataPoints = []
 let dataPointsVolume = []
+let dataPointsNav = []
 
 const noop = () => {return ''}
 
@@ -58,16 +59,23 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         dynamicUpdate: false,
         height: chartHeight * 0.1,
         axisX: {
-            valueFormatString: 'MMM DD'
-        }
+            valueFormatString: 'MMM DD',
+            labelFontColor: '#fff'
+        },
+        data: [{
+            type: 'line',
+            dataPoints: dataPointsNav
+        }]
     },
     //colorSet: "defaultColorSet",
-    theme: "dark2"
+    theme: "dark2",
+    backgroundColor: "#000"
 })
 
 export function pushChartDatapoints(data) {
     dataPoints.length = 0
     dataPointsVolume.length = 0
+    dataPointsNav.length = 0
     
     for (let point of data) {
         dataPoints.push({
@@ -82,6 +90,10 @@ export function pushChartDatapoints(data) {
         dataPointsVolume.push({
             x: new Date(point[0]),
             y: Number(point[7]) // Asset volume in data
+        })
+        dataPointsNav.push({
+            x: new Date(point[0]),
+            y: (Number(point[3]) + Number(point[2])) / 2
         })
     }
 }

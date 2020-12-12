@@ -19,6 +19,7 @@ function _onMsg(message) {
     const data = JSON.parse(message.data)
     let datapointsChart = chartCandle.charts[0].options.data[0].dataPoints
     let datapointsVolume = chartCandle.charts[1].options.data[0].dataPoints
+    let datapointsNav = chartCandle.navigator.data[0].dataPoints
     
     //Changing specific datapoints in last chart's kline 
     datapointsChart[datapointsChart.length - 1].y[0] = Number(data.k.o) // open
@@ -28,6 +29,9 @@ function _onMsg(message) {
 
     //Changing last volume bar
     datapointsVolume[datapointsVolume.length - 1].y = Number(data.k.q)
+
+    //Changing last point which is average of kandle
+    datapointsNav[datapointsNav.length - 1].y = (Number(data.k.h) + Number(data.k.l)) / 2
 
     // If kline closed - push new candlestick to datapoints
     if (data.k.x) {
@@ -41,6 +45,10 @@ function _onMsg(message) {
         datapointsVolume.push({
             x: new Date(data.k.T + 1000),
             y: 0
+        })
+        datapointsNav.push({
+            x: new Date(data.k.T + 1000),
+            y: Number(data.k.c)
         })
     }
     console.log('socket')

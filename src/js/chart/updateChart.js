@@ -20,7 +20,7 @@ export default async function updateChart() {
         socket.open()
         
         console.log(chartState)
-        console.log(chartCandle)
+        console.log(chartCandle.navigator.data[0])
         
     } catch (error) {
         console.log(error)

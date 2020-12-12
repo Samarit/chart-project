@@ -1,7 +1,7 @@
 let chartState = {
-    symbol: 'BTCUSDT',
-    timeframe: '1h',
-    limit: 300
+    symbol: 'VETUSDT',
+    timeframe: '1m',
+    limit: 100
 }
 
 export default chartState
