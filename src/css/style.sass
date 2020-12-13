@@ -1,37 +1,35 @@
+@import 'chart/chart.sass'
 @import 'tickerbar/tickerbar.sass'
+@import 'tickerbar/icons.sass'
 @import 'modal/modal.sass'
 @import 'modal/modalAnimation.sass'
-@import 'tickerbar/icons.sass'
 
 $base-color: rgba(0, 0, 0, 1)
+$text-color: white
 $up-color: rgba(25, 255, 0, 1)
 $down-color: rgba(255, 25, 0, 1)
 
 body
+  display: flex
+  flex-direction: column
+  align-items: center
   box-sizing: border-box
   margin: 0 0
   padding: 0 0
-  max-width: 1600px
+  background-color: $base-color
+  color: $text-color
 
 #chart-wrapper
+  max-width: 1600px
   width: 100%
 
-#chart-container
-  height: 500px
+#tickerbar-wrapper
+  display: flex
+  justify-content: center
 
 #bar-wrapper
   display: flex
   justify-content: space-between
-
-#chart-timebar
-  display: flex
-  justify-content: start
-  margin: 0 .5em
-
-#chart-scalebar
-  display: flex
-  justify-content: end
-  margin: 0 .5em
 
 .open
   background-color: black
