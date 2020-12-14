@@ -6,10 +6,10 @@ const modalCreate = function(buttons = []) {
 
     return {
         open() {
-            $modal.classList.add('open')
+            $modal.classList.add('modal-open')
         },
         close() {
-            $modal.classList.remove('open')
+            $modal.classList.remove('modal-open')
             $modal.classList.add('hide')
             setTimeout(() => {
                 $modal.classList.remove('hide')

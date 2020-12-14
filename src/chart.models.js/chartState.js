@@ -1,5 +1,5 @@
 let chartState = {
-    symbol: 'VETUSDT',
+    symbol: 'NEOUSDT',
     timeframe: '1m',
     limit: 100
 }

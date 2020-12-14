@@ -6,29 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="chart-wrapper">
-        <div id="chart-container"></div>
-        <div id="bar-wrapper">
-            <div id='chart-timebar'>
-                <button class="btn" data-id="1m">1m</button>
-                <button class="btn" data-id="5m">5m</button>
-                <button class="btn" data-id="15m">15m</button>
-                <button class="btn" data-id="1h">1h</button>
-                <button class="btn" data-id="4h">4h</button>
-                <button class="btn" data-id="12h">12h</button>
-                <button class="btn" data-id="1d">1D</button>
-                <button class="btn" data-id="1w">1W</button>
-                <button class="btn" data-id="1M">1M</button>
-            </div>
-            <div id="chart-scalebar">
-                <button class="btn" data-id="100">100</button>
-                <button class="btn" data-id="300">300</button>
-                <button class="btn" data-id="500">500</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="tickerbar-wrapper">
+    <div id="app">
+        <div id="tickerbar-wrapper">
         <div id="tickerbar">
             <div class="ticker" id="btc" data-id="btcusdt"  data-symbol="btc">
                 <div class="ticker-title">
@@ -116,6 +95,28 @@
             </div>
         </div>
         <div class="ticker" id="ticker-add">ADD</div>
+        </div>
+        <div id="chart-wrapper">
+        <div id="bar-wrapper">
+            <div id='chart-timebar'>
+                <button class="btn" data-id="1m">1m</button>
+                <button class="btn" data-id="5m">5m</button>
+                <button class="btn" data-id="15m">15m</button>
+                <button class="btn" data-id="1h">1h</button>
+                <button class="btn" data-id="4h">4h</button>
+                <button class="btn" data-id="12h">12h</button>
+                <button class="btn" data-id="1d">1D</button>
+                <button class="btn" data-id="1w">1W</button>
+                <button class="btn" data-id="1M">1M</button>
+            </div>
+            <div id="chart-scalebar">
+                <button class="btn" data-id="100">100</button>
+                <button class="btn" data-id="300">300</button>
+                <button class="btn" data-id="500">500</button>
+            </div>
+        </div>
+        <div id="chart-container"></div>
+        </div>
     </div>
     <div id="loader">
         <div class="lds-circle"><div></div></div>
