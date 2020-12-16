@@ -1,3 +1,12 @@
 export default function colorSwitcher(ticker, chng) {
-    Number(chng) > 0 ? ticker.style.borderColor = '#7d7' : ticker.style.borderColor = 'red'
+    const color = Number(chng) > 0 ? '#4f4' : 'red'
+      
+    _switchColor(ticker, color)
+}
+
+function _switchColor (ticker, color) {
+    const priceDivs = ticker.querySelector('.ticker-price')
+    
+    ticker.style.borderColor = color
+    priceDivs.style.color = color
 }
