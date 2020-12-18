@@ -7,6 +7,7 @@ import { tickerAddHandler } from './js/tickerbar/tickerAddHandler'
 import tickerClickHandler from './js/tickerbar/tickerClickHandler'
 import tickerDataFetch from './js/tickerbar/tickerDataFetch'
 
+
 const timeBar = document.getElementById('chart-timebar')
 const scaleBar = document.getElementById('chart-scalebar')
 const tickerbar = document.getElementById('tickerbar')
@@ -24,4 +25,6 @@ for (const ticker of tickers) {
     ticker.addEventListener('click', tickerClickHandler)
 }
 tickerAdd.addEventListener('click', tickerAddHandler)
+
+
 

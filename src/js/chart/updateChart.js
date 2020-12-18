@@ -12,15 +12,18 @@ export default async function updateChart() {
 
         const data = await getChartData()
         pushChartDatapoints(data)
+        
         chartCandle.options.charts[0].title.text = chartState.symbol
         chartCandle.render()
+        chartCandle.navigator.slider.set('maximum', null)
+        chartCandle.navigator.slider.set('minimum', null)
 
         loader.style.display = 'none'
 
         socket.open()
         
         console.log(chartState)
-        console.log(chartCandle.navigator.data[0])
+        console.log(chartCandle.navigator)
         
     } catch (error) {
         console.log(error)

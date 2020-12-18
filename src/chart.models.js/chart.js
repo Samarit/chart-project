@@ -4,7 +4,7 @@ CanvasJS.addColorSet("defaultColorSet", [//colorSet Array
     "#FF1900"
   ])
 
-const container = document.getElementById('chart-container') 
+const container = document.getElementById('chart-container')
 let chartHeight = container.offsetHeight
 
 let dataPoints = []
@@ -44,6 +44,9 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             tickThickness: 0,
             gridThickness: 0,
             lineThickness: 0
+        },
+        axisY: {
+            labelFontSize: 0
         },
         data: [{
             type: 'column',
