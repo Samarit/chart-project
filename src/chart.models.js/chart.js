@@ -1,3 +1,5 @@
+import chartState from './chartState.js'
+
 const CanvasJS = require('./canvasjs.stock.min.js')
 CanvasJS.addColorSet("defaultColorSet", [//colorSet Array
     "#19FF00",
@@ -16,7 +18,8 @@ const noop = () => {return ''}
 export const chartCandle = new CanvasJS.StockChart('chart-container', {
     charts: [{
         title: {
-            text: 'Chart'
+            text: 'Chart',
+            fontSize: chartState.fontSize * 2
         },
         height: chartHeight * 0.75,
         axisX: {
@@ -25,6 +28,9 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             tickThickness: 0,
             gridThickness: 0,
             lineThickness: 0
+        },
+        axisY: {
+            labelFontSize: 10
         },
         data: [{
             type: 'candlestick',
@@ -101,5 +107,5 @@ export function pushChartDatapoints(data) {
     }
 }
 
-
+window.mychart = chartCandle
 

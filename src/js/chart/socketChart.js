@@ -40,6 +40,7 @@ function _onMsg(message) {
         datapointsVolume.shift()
         datapointsNav.shift()
 
+        
         datapointsChart.push({
             x: new Date(data.k.T + 1000), //Closed time of this kline + 1 sec for next kline
             y: [] // This array will be filled in next socket message
@@ -52,6 +53,11 @@ function _onMsg(message) {
             x: new Date(data.k.T + 1000),
             y: Number(data.k.c)
         })
+
+        chartCandle.render()
+        chartCandle.navigator.slider.set('maximum', null)
+        console.log('maximum set')
+        return false
     }
     console.log('socket')
     chartCandle.render()

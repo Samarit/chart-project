@@ -12,8 +12,9 @@ export default async function updateChart() {
 
         const data = await getChartData()
         pushChartDatapoints(data)
+
+        _titleUpdater(chartState.symbol)
         
-        chartCandle.options.charts[0].title.text = chartState.symbol
         chartCandle.render()
         chartCandle.navigator.slider.set('maximum', null)
         chartCandle.navigator.slider.set('minimum', null)
@@ -28,4 +29,20 @@ export default async function updateChart() {
     } catch (error) {
         console.log(error)
     }
+}
+
+function _titleUpdater (symbol) {
+    let symbolStart = ''
+    let symbolEnd = ''
+    let slicePos = symbol.length - 3
+
+    if (symbol.endsWith('USDT')) {
+        slicePos = symbol.indexOf('USDT')
+    }
+    
+    symbolStart = symbol.slice(0, slicePos)
+    symbolEnd = symbol.slice(slicePos)
+
+    chartCandle.options.charts[0].title.text = `${symbolStart}/${symbolEnd}`
+
 }

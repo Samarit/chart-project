@@ -1,4 +1,4 @@
-import modalNames from "./modalNames"
+import modalOptions from "./modalOptions"
 
 const modalCreate = function(buttons = []) {
     const $modal = _createModal(buttons)
@@ -45,8 +45,8 @@ const _createModal = function(buttons) {
     `)
 
     const selectContainer = modal.querySelector('.select-container')
-    const select1 = _createModalSelect(modalNames[0])
-    const select2 = _createModalSelect(modalNames[1])
+    const select1 = _createModalSelect(modalOptions[0])
+    const select2 = _createModalSelect(modalOptions[1])
     select1.dataset.selectPrimary = true
     select2.dataset.selectSecondary = true
     selectContainer.append(select1, select2)

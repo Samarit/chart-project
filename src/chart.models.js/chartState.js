@@ -1,7 +1,8 @@
 let chartState = {
-    symbol: 'NEOUSDT',
+    symbol: 'BNBUSDT',
     timeframe: '1m',
-    limit: 100
+    limit: 100,
+    fontSize: 10
 }
 
 export default chartState

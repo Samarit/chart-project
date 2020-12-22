@@ -19,8 +19,10 @@ const modalNames = [
         'XRP',
     ],
     [
+        'USDT',
         'BTC',
-        'USDT'
+        'ETH',
+        'BNB'
     ]
 ]
 
