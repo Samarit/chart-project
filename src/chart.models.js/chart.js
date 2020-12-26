@@ -30,7 +30,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             lineThickness: 0
         },
         axisY: {
-            labelFontSize: 10
+            labelFontSize: chartState.fontSize
         },
         data: [{
             type: 'candlestick',
