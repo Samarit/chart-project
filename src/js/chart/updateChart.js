@@ -16,15 +16,12 @@ export default async function updateChart() {
         _titleUpdater(chartState.symbol)
         
         chartCandle.render()
-        chartCandle.navigator.slider.set('maximum', null)
-        chartCandle.navigator.slider.set('minimum', null)
 
         loader.style.display = 'none'
 
         socket.open()
         
         console.log(chartState)
-        console.log(chartCandle.navigator)
         
     } catch (error) {
         console.log(error)

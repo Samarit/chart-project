@@ -16,7 +16,9 @@ let dataPointsNav = []
 const noop = () => {return ''}
 
 export const chartCandle = new CanvasJS.StockChart('chart-container', {
-    charts: [{
+    charts: [
+        //Candlesticks chart
+    {
         title: {
             text: 'Chart',
             fontSize: chartState.fontSize * 2
@@ -38,8 +40,11 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             color: 'grey',
             risingColor: '#7d7',
             fallingColor: 'red'
-        }]
-    },{
+        }],
+        //zoomEnabled: true
+    },
+        //Volume chart
+    {
         title: {
             text: ''
         },
@@ -64,7 +69,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         enabled: false
     },
     navigator: {
-        enabled: true,
+        enabled: false,
         dynamicUpdate: false,
         height: chartHeight * 0.1,
         axisX: {
@@ -84,7 +89,6 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
 export function pushChartDatapoints(data) {
     dataPoints.length = 0
     dataPointsVolume.length = 0
-    dataPointsNav.length = 0
     
     for (let point of data) {
         dataPoints.push({
@@ -100,12 +104,45 @@ export function pushChartDatapoints(data) {
             x: new Date(point[0]),
             y: Number(point[7]) // Asset volume in data
         })
-        dataPointsNav.push({
-            x: new Date(point[0]),
-            y: (Number(point[3]) + Number(point[2])) / 2
-        })
     }
 }
 
-window.mychart = chartCandle
+const canvas = document.getElementsByClassName("canvasjs-chart-canvas")[1]
 
+
+
+function zoom (e) {
+//    e.preventDefault()
+//    
+//    //if(e.clientX < chartCandle.charts[0].plotArea.x1 || e.clientX > chartCandle.charts[0].plotArea.x2 || e.clientY < chartCandle.charts[0].plotArea.y1 || e.clientY > chartCandle.charts[0].plotArea.y2)
+//    //    return
+//      
+//    var axisX = chartCandle.charts[0].axisX[0];
+//    var viewportMin = axisX.get("viewportMinimum"),
+//        viewportMax = axisX.get("viewportMaximum"),
+//        interval = axisX.get("minimum")
+//    
+
+console.log('wheek')
+//  
+//    var newViewportMin, newViewportMax;
+//  
+//    if (e.deltaY < 0) {
+//      newViewportMin = viewportMin + interval;
+//      newViewportMax = viewportMax - interval;
+//    }
+//    else if (e.deltaY > 0) {
+//      newViewportMin = viewportMin - interval;
+//      newViewportMax = viewportMax + interval;
+//    }
+//  
+//    if(newViewportMin >= chart.axisX[0].get("minimum") && newViewportMax <= chart.axisX[0].get("maximum") && (newViewportMax - newViewportMin) > (2 * interval)){
+//      chart.axisX[0].set("viewportMinimum", newViewportMin, false);
+//      chart.axisX[0].set("viewportMaximum", newViewportMax);
+//    }
+//  
+}
+
+canvas.onclick = zoom
+
+window.mychart = chartCandle

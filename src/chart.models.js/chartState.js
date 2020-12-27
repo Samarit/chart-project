@@ -1,7 +1,7 @@
 let chartState = {
     symbol: 'BNBUSDT',
     timeframe: '1m',
-    limit: 100,
+    limit: 300,
     fontSize: 10
 }
 
