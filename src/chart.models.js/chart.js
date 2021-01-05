@@ -11,7 +11,7 @@ let chartHeight = container.offsetHeight
 
 let dataPoints = []
 let dataPointsVolume = []
-let dataPointsNav = []
+let dataPointsRSI = []
 
 const noop = () => {return ''}
 
@@ -40,8 +40,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             color: 'grey',
             risingColor: '#7d7',
             fallingColor: 'red'
-        }],
-        //zoomEnabled: true
+        }]
     },
         //Volume chart
     {
@@ -63,23 +62,35 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             type: 'column',
             dataPoints: dataPointsVolume
         }]
-    }
-    ],
-    rangeSelector: {
-        enabled: false
     },
-    navigator: {
-        enabled: false,
-        dynamicUpdate: false,
+        //RSI chart
+    {
+        title: '',
         height: chartHeight * 0.1,
+        axisY: {
+            stripLines: [{
+                startValue: 30,
+                endValue: 70,
+                color: 'grey'
+            }],
+            minimum: 0,
+            maximum: 100
+        },
         axisX: {
-            valueFormatString: 'MMM DD',
-            labelFontColor: '#fff'
+            title: "",
+            tickLength: 0,
+            margin: 0,
+            lineThickness: 0,
+            valueFormatString: " "
         },
         data: [{
             type: 'line',
-            dataPoints: dataPointsNav
+            dataPoints: dataPointsRSI
         }]
+    },
+    ],
+    rangeSelector: {
+        enabled: false
     },
     //colorSet: "defaultColorSet",
     theme: "dark2",
