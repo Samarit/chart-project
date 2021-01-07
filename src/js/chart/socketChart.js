@@ -46,8 +46,7 @@ function _onMsg(message) {
         })
 
         chartCandle.render()
-        console.log('maximum set')
-        return false
+        return
     }
     console.log('socket')
     chartCandle.render()

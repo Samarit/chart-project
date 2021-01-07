@@ -21,7 +21,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
     {
         title: {
             text: 'Chart',
-            fontSize: chartState.fontSize * 2
+            fontSize: chartState.fontSize * 1.5
         },
         height: chartHeight * 0.75,
         axisX: {
@@ -91,6 +91,9 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
     ],
     rangeSelector: {
         enabled: false
+    },
+    navigator: {
+        //enabled: false
     },
     //colorSet: "defaultColorSet",
     theme: "dark2",
