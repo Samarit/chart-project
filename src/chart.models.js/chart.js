@@ -1,11 +1,7 @@
+import calculateRSIdata from '../js/chart/calculateRSIdata.js'
 import chartState from './chartState.js'
 
 const CanvasJS = require('./canvasjs.stock.min.js')
-CanvasJS.addColorSet("defaultColorSet", [//colorSet Array
-    "#19FF00",
-    "#FF1900"
-  ])
-
 const container = document.getElementById('chart-container')
 let chartHeight = container.offsetHeight
 
@@ -68,13 +64,13 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         title: '',
         height: chartHeight * 0.1,
         axisY: {
-            stripLines: [{
-                startValue: 30,
-                endValue: 70,
-                color: 'grey'
-            }],
-            minimum: 0,
-            maximum: 100
+            //stripLines: [{
+            //    startValue: 30,
+            //    endValue: 70,
+            //    color: 'grey'
+            //}],
+            //minimum: 0,
+            //maximum: 100
         },
         axisX: {
             title: "",
@@ -95,7 +91,6 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
     navigator: {
         //enabled: false
     },
-    //colorSet: "defaultColorSet",
     theme: "dark2",
     backgroundColor: "#000"
 })
@@ -103,6 +98,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
 export function pushChartDatapoints(data) {
     dataPoints.length = 0
     dataPointsVolume.length = 0
+    dataPointsRSI.length = 0
     
     for (let point of data) {
         dataPoints.push({
@@ -119,6 +115,9 @@ export function pushChartDatapoints(data) {
             y: Number(point[7]) // Asset volume in data
         })
     }
+
+    // Changing datapointsRSI
+    chartCandle.options.charts[2].data[0].dataPoints = calculateRSIdata(data)
 }
 
 const canvas = document.getElementsByClassName("canvasjs-chart-canvas")[1]
