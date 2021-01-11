@@ -5,6 +5,9 @@ const CanvasJS = require('./canvasjs.stock.min.js')
 const container = document.getElementById('chart-container')
 let chartHeight = container.offsetHeight
 
+const risingColor = '#7d7'
+const fallingColor = 'red'
+
 let dataPoints = []
 let dataPointsVolume = []
 let dataPointsRSI = []
@@ -34,8 +37,8 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             type: 'candlestick',
             dataPoints: dataPoints,
             color: 'grey',
-            risingColor: '#7d7',
-            fallingColor: 'red'
+            risingColor: risingColor,
+            fallingColor: fallingColor
         }]
     },
         //Volume chart
@@ -81,6 +84,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         },
         data: [{
             type: 'line',
+            color: 'gold',
             dataPoints: dataPointsRSI
         }]
     },
@@ -100,7 +104,10 @@ export function pushChartDatapoints(data) {
     dataPointsVolume.length = 0
     dataPointsRSI.length = 0
     
+    
     for (let point of data) {
+        const chng = point[4] - point[1]
+
         dataPoints.push({
             x: new Date(point[0]),
             y: [
@@ -112,7 +119,8 @@ export function pushChartDatapoints(data) {
         })
         dataPointsVolume.push({
             x: new Date(point[0]),
-            y: Number(point[7]) // Asset volume in data
+            y: Number(point[7]), // Asset volume in data,
+            color: chng > 0 ? risingColor : fallingColor // color of this point based on price change
         })
     }
 

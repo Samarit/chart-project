@@ -19,6 +19,8 @@ function _onMsg(message) {
     const data = JSON.parse(message.data)
     let datapointsChart = chartCandle.charts[0].options.data[0].dataPoints
     let datapointsVolume = chartCandle.charts[1].options.data[0].dataPoints
+
+    let chng = data.k.c - data.k.o // price change 
     
     //Changing specific datapoints in last chart's kline 
     datapointsChart[datapointsChart.length - 1].y[0] = Number(data.k.o) // open
@@ -28,6 +30,7 @@ function _onMsg(message) {
 
     //Changing last volume bar
     datapointsVolume[datapointsVolume.length - 1].y = Number(data.k.q)
+    datapointsVolume[datapointsVolume.length - 1].color = chng > 0 ? '#7d7' : 'red'
 
     // If kline closed - push new candlestick to datapoints
     if (data.k.x) {
