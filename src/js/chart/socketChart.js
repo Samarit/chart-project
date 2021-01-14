@@ -9,8 +9,6 @@ export default function socketChart() {
             socket.close && socket.close()
             socket = new WebSocket(`wss://stream.binance.com:9443/ws/${chartState.symbol.toLowerCase()}@kline_${chartState.timeframe}`)
             socket.onmessage = _onMsg
-
-            socket.onclose = () => console.log('socketChart closed')
         }
     }
 }
@@ -34,11 +32,10 @@ function _onMsg(message) {
 
     // If kline closed - push new candlestick to datapoints
     if (data.k.x) {
-        console.log('Closing kline recieved')
+
         datapointsChart.shift()
         datapointsVolume.shift()
 
-        
         datapointsChart.push({
             x: new Date(data.k.T + 1000), //Closed time of this kline + 1 sec for next kline
             y: [] // This array will be filled in next socket message
@@ -51,6 +48,6 @@ function _onMsg(message) {
         chartCandle.render()
         return
     }
-    console.log('socket')
+    
     chartCandle.render()
 }

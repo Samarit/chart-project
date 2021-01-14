@@ -13,15 +13,17 @@ export default async function updateChart() {
         const data = await getChartData()
         pushChartDatapoints(data)
 
+        
         _titleUpdater(chartState.symbol)
         
+        _setViewport(data)
         chartCandle.render()
 
         loader.style.display = 'none'
 
         socket.open()
         
-        console.log(chartState)
+        console.log('Chart state: ' ,chartState)
         
     } catch (error) {
         console.log(error)
@@ -42,4 +44,14 @@ function _titleUpdater (symbol) {
 
     chartCandle.options.charts[0].title.text = `${symbolStart}/${symbolEnd}`
 
+}
+
+function _setViewport(data) {
+    const viewMin = data[0][0]
+    const viewMax = data[data.length - 1][0]
+
+    chartCandle._axisXMin = viewMin
+    
+    //chartCandle.charts[0].axisX[0].set('viewportMinimum', viewMin)
+    //chartCandle.charts[0].axisX[0].set('viewportMaximum', viewMax)
 }

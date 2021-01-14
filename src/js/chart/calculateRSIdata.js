@@ -53,7 +53,5 @@ export default function calculateRSIdata(data) {
         })
     }
 
-    console.log('rsidata', rsiDataPoints)
-
     return rsiDataPoints
 }

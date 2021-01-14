@@ -93,7 +93,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         enabled: false
     },
     navigator: {
-        //enabled: false
+        enabled: false
     },
     theme: "dark2",
     backgroundColor: "#000"
