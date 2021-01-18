@@ -16,7 +16,7 @@ export default async function updateChart() {
         
         _titleUpdater(chartState.symbol)
         
-        _setViewport(data)
+        //_setViewport(data)
         chartCandle.render()
 
         loader.style.display = 'none'
@@ -24,6 +24,11 @@ export default async function updateChart() {
         socket.open()
         
         console.log('Chart state: ' ,chartState)
+
+        console.log('_axisXMin ', chartCandle._axisXMin)
+        console.log('_axisXMax ', chartCandle._axisXMax)
+        console.log('rangeEventParametr ', chartCandle._rangeEventParameter)
+        console.log('sessionVars: ', chartCandle.sessionVariables)
         
     } catch (error) {
         console.log(error)
@@ -50,6 +55,7 @@ function _setViewport(data) {
     const viewMin = data[0][0]
     const viewMax = data[data.length - 1][0]
 
+    
     chartCandle._axisXMin = viewMin
     
     //chartCandle.charts[0].axisX[0].set('viewportMinimum', viewMin)

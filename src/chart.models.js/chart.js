@@ -18,6 +18,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
     charts: [
         //Candlesticks chart
     {
+        zoomEnabled: true,
         title: {
             text: 'Chart',
             fontSize: chartState.fontSize * 1.5
@@ -38,7 +39,8 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             dataPoints: dataPoints,
             color: 'grey',
             risingColor: risingColor,
-            fallingColor: fallingColor
+            fallingColor: fallingColor,
+            click: noop()
         }]
     },
         //Volume chart
@@ -92,8 +94,15 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
     rangeSelector: {
         enabled: false
     },
+    rangeChanging: function(e) {
+        console.log('rangeChanging ', e)
+    },
+    rangeChanged: function(e) {
+        console.log('rangeChanged ', e)
+    },
     navigator: {
-        enabled: false
+        enabled: false,
+        dynamicUpdate: false
     },
     theme: "dark2",
     backgroundColor: "#000"

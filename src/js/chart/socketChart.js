@@ -30,6 +30,7 @@ function _onMsg(message) {
     datapointsVolume[datapointsVolume.length - 1].y = Number(data.k.q)
     datapointsVolume[datapointsVolume.length - 1].color = chng > 0 ? '#7d7' : 'red'
 
+
     // If kline closed - push new candlestick to datapoints
     if (data.k.x) {
 
