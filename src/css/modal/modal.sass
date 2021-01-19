@@ -10,22 +10,43 @@
     transition: opacity 250ms
 
 .modal-window
-    width: 500px
-    height: 400px
-    background-color: white
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center
+    width: 15em
+    height: 12em
+    padding: 1em .5em
+    background-color: darkgrey
     color: black
+    border: 1px solid white
 
 .modal-header
     text-align: center
 
-.modal-title
-    font-size: 30px
+    .modal-title
+        font-size: 1.7em
 
 .modal-body
     display: flex
     justify-content: center
     align-items: center
 
+    .select-container
+        display: flex
+        justify-content: center
+
+        select
+            font-size: 1.2em
+
 .modal-footer
     display: flex
     justify-content: center
+
+    button
+        min-width: 2em
+        font-size: 1.4em
+        padding: 0.1em
+
+    button:first-child
+        margin-right: .2em
