@@ -101,7 +101,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         console.log('rangeChanged ', e)
     },
     navigator: {
-        enabled: false,
+        enabled: true,
         dynamicUpdate: false
     },
     theme: "dark2",
@@ -176,3 +176,4 @@ console.log('wheek')
 canvas.onclick = zoom
 
 window.mychart = chartCandle
+window.state = chartState

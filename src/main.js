@@ -28,3 +28,4 @@ tickerAdd.addEventListener('click', tickerAddHandler)
 
 
 
+

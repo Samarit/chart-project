@@ -14,10 +14,26 @@ export default async function updateChart() {
         pushChartDatapoints(data)
 
         
+        
+        
         _titleUpdater(chartState.symbol)
         
-        //_setViewport(data)
         chartCandle.render()
+        
+        chartState.viewMinDefault = chartCandle._axisXMin
+        chartState.viewMaxDefault = chartCandle._axisXMax
+
+        const resetBtn = document.getElementById('reset-btn')
+        resetBtn.addEventListener('click', () => {
+            console.log('loh')
+            chartCandle.sessionVariables._axisXMin = chartState.viewMinDefault
+            chartCandle.sessionVariables._axisXMax = chartState.viewMaxDefault
+            chartCandle.render()
+        })
+        
+
+        console.log('minimum', data[0][0])
+        console.log('maximum', data[data.length - 1][0])
 
         loader.style.display = 'none'
 
@@ -49,15 +65,4 @@ function _titleUpdater (symbol) {
 
     chartCandle.options.charts[0].title.text = `${symbolStart}/${symbolEnd}`
 
-}
-
-function _setViewport(data) {
-    const viewMin = data[0][0]
-    const viewMax = data[data.length - 1][0]
-
-    
-    chartCandle._axisXMin = viewMin
-    
-    //chartCandle.charts[0].axisX[0].set('viewportMinimum', viewMin)
-    //chartCandle.charts[0].axisX[0].set('viewportMaximum', viewMax)
 }
