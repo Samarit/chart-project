@@ -6,7 +6,7 @@ export default function tickerCreateModal() {
             {
                 type: 'confirm',
                 text: 'Ok',
-                handler (event) {
+                handler (e) {
                     console.log('confirmed')
                     modal.close()
                     resolve()
@@ -15,7 +15,8 @@ export default function tickerCreateModal() {
             {
                 type: 'cancel',
                 text: 'Cancel',
-                handler () {
+                handler (e) {
+                    if (e.target !== this) return
                     console.log('rejected')
                     modal.close()
                     reject(new Error)

@@ -2,17 +2,21 @@ import modalOptions from "./modalOptions"
 
 const modalCreate = function(buttons = []) {
     const $modal = _createModal(buttons)
+    const overlay = $modal.querySelector('.modal-overlay')
+    const closeModal = buttons[1].handler
     const ANIMATION_SPEED = 250
 
     return {
         open() {
             $modal.classList.add('modal-open')
+            overlay.addEventListener('click', closeModal)
         },
         close() {
             $modal.classList.remove('modal-open')
             $modal.classList.add('hide')
             setTimeout(() => {
                 $modal.classList.remove('hide')
+                overlay.removeEventListener('click', closeModal)
                 $modal.remove()
             }, ANIMATION_SPEED)
             
@@ -32,7 +36,7 @@ const _createModal = function(buttons) {
     modal.classList.add('modal')
 
     modal.insertAdjacentHTML('afterbegin', `
-    <div class="modal-overlay" data-close="true">
+    <div class="modal-overlay">
         <div class="modal-window">
             <div class="modal-header">
                 <span class="modal-title">Choose pair:</span>
