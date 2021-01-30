@@ -27,7 +27,7 @@ function _onMsg(message) {
     datapointsChart[datapointsChart.length - 1].y[3] = Number(data.k.c) // close
 
     //Changing last volume bar
-    datapointsVolume[datapointsVolume.length - 1].y = Number(data.k.q)
+    datapointsVolume[datapointsVolume.length - 1].y = Number(data.k.v) // data.k.q for quote volume
     datapointsVolume[datapointsVolume.length - 1].color = chng > 0 ? '#7d7' : 'red'
 
 

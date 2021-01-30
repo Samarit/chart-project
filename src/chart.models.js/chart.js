@@ -23,7 +23,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             text: 'Chart',
             fontSize: chartState.fontSize * 1.5
         },
-        height: chartHeight * 0.75,
+        height: chartHeight * 0.70,
         axisX: {
             labelFormatter: noop,
             tickLength: 0,
@@ -48,7 +48,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         title: {
             text: ''
         },
-        height: chartHeight * 0.15,
+        height: chartHeight * 0.17,
         axisX: {
             labelFormatter: noop,
             tickLength: 0,
@@ -57,7 +57,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             lineThickness: 0
         },
         axisY: {
-            labelFontSize: 0
+            //labelFontSize: 0
         },
         data: [{
             type: 'column',
@@ -67,7 +67,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         //RSI chart
     {
         title: '',
-        height: chartHeight * 0.1,
+        height: chartHeight * 0.13,
         axisY: {
             //stripLines: [{
             //    startValue: 30,
@@ -81,8 +81,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             title: "",
             tickLength: 0,
             margin: 0,
-            lineThickness: 0,
-            valueFormatString: " "
+            lineThickness: 0
         },
         data: [{
             type: 'line',
@@ -128,7 +127,7 @@ export function pushChartDatapoints(data) {
         })
         dataPointsVolume.push({
             x: new Date(point[0]),
-            y: Number(point[7]), // Asset volume in data,
+            y: Number(point[5]), // Quote volume in data, [7] is asset volume 
             color: chng > 0 ? risingColor : fallingColor // color of this point based on price change
         })
     }
