@@ -6,5 +6,4 @@ export default function tickerClickHandler (event) {
     chartState.symbol = symbol.toUpperCase()
 
     updateChart()
-    console.log('State: ', chartState)
 }

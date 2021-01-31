@@ -14,8 +14,6 @@ export default async function updateChart() {
         pushChartDatapoints(data)
 
         
-        
-        
         _titleUpdater(chartState.symbol)
         
         chartCandle.render()
@@ -23,28 +21,16 @@ export default async function updateChart() {
         chartState.viewMinDefault = chartCandle._axisXMin
         chartState.viewMaxDefault = chartCandle._axisXMax
 
-        const resetBtn = document.getElementById('reset-btn')
-        resetBtn.addEventListener('click', () => {
-            console.log('loh')
-            chartCandle.sessionVariables._axisXMin = chartState.viewMinDefault
-            chartCandle.sessionVariables._axisXMax = chartState.viewMaxDefault
-            chartCandle.render()
-        })
         
-
-        console.log('minimum', data[0][0])
-        console.log('maximum', data[data.length - 1][0])
+        const resetBtn = document.getElementById('reset-btn')
+        resetBtn.removeEventListener('click', resetBtnHandler)
+        resetBtn.addEventListener('click', resetBtnHandler)
 
         loader.style.display = 'none'
 
         socket.open()
         
         console.log('Chart state: ' ,chartState)
-
-        console.log('_axisXMin ', chartCandle._axisXMin)
-        console.log('_axisXMax ', chartCandle._axisXMax)
-        console.log('rangeEventParametr ', chartCandle._rangeEventParameter)
-        console.log('sessionVars: ', chartCandle.sessionVariables)
         
     } catch (error) {
         console.log(error)
@@ -65,4 +51,10 @@ function _titleUpdater (symbol) {
 
     chartCandle.options.charts[0].title.text = `${symbolStart}/${symbolEnd}`
 
+}
+
+function resetBtnHandler() {
+    chartCandle.sessionVariables._axisXMin = chartState.viewMinDefault
+    chartCandle.sessionVariables._axisXMax = chartState.viewMaxDefault
+    chartCandle.render()
 }
