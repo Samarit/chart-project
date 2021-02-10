@@ -21,7 +21,13 @@ module.exports = {
         new HTMLPlugin({
             template: './src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        [
+          "postcss-preset-env",
+          {
+            execute: true
+          }
+        ]
     ],
     module: {
         rules: [
@@ -31,6 +37,7 @@ module.exports = {
               "style-loader",
               "css-loader",
               "sass-loader",
+              "postcss-loader"
             ],
           }, {
             test: /\.(svg|jpg|png|gif)$/,
