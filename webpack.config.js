@@ -21,13 +21,7 @@ module.exports = {
         new HTMLPlugin({
             template: './src/index.html'
         }),
-        new CleanWebpackPlugin(),
-        [
-          "postcss-preset-env",
-          {
-            execute: true
-          }
-        ]
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [
