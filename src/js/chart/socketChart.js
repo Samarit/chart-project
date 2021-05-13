@@ -14,9 +14,12 @@ export default function socketChart() {
 }
 
 function _onMsg(message) {
+
     const data = JSON.parse(message.data)
+
     let datapointsChart = chartCandle.charts[0].options.data[0].dataPoints
     let datapointsVolume = chartCandle.charts[1].options.data[0].dataPoints
+    let datapointsRSI = chartCandle.charts[2].options.data[0].dataPoints
 
     let chng = data.k.c - data.k.o // price change 
     
@@ -36,6 +39,7 @@ function _onMsg(message) {
 
         datapointsChart.shift()
         datapointsVolume.shift()
+        datapointsRSI.shift()
 
         datapointsChart.push({
             x: new Date(data.k.T + 1000), //Closed time of this kline + 1 sec for next kline
