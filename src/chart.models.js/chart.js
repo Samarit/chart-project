@@ -7,6 +7,7 @@ let chartHeight = container.offsetHeight
 
 const risingColor = '#7d7'
 const fallingColor = 'red'
+const gridColor = '#C9BDA5'
 
 let dataPoints = []
 let dataPointsVolume = []
@@ -32,7 +33,8 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             lineThickness: 0
         },
         axisY: {
-            labelFontSize: chartState.fontSize
+            labelFontSize: chartState.fontSize,
+            gridColor: gridColor
         },
         data: [{
             type: 'candlestick',
@@ -57,7 +59,8 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             lineThickness: 0
         },
         axisY: {
-            //labelFontSize: 0
+            //labelFontSize: 0,
+            gridColor: gridColor
         },
         data: [{
             type: 'column',
@@ -69,6 +72,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         title: '',
         height: chartHeight * 0.13,
         axisY: {
+            gridColor: gridColor,
             //stripLines: [{
             //    startValue: 30,
             //    endValue: 70,
