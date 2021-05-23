@@ -24,7 +24,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             text: 'Chart',
             fontSize: chartState.fontSize * 1.5
         },
-        height: chartHeight * 0.70,
+        height: chartHeight * 0.69,
         axisX: {
             labelFormatter: noop,
             tickLength: 0,

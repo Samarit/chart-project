@@ -1,5 +1,5 @@
 export default function colorSwitcher(ticker, chng) {
-    const color = Number(chng) > 0 ? '#4f4' : 'red'
+    const color = Number(chng) > 0 ? '#4f4' : '#ff5200'
       
     _switchColor(ticker, color)
 }

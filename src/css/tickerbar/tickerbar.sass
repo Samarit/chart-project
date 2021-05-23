@@ -1,3 +1,4 @@
+
 #tickerbar-wrapper
     display: flex
     justify-content: start
@@ -8,7 +9,7 @@
     height: 0.5em
 
 #tickerbar-wrapper::-webkit-scrollbar-thumb
-    background-color: #7d7
+    background-color: silver
 
 #tickerbar
     display: flex
@@ -20,6 +21,7 @@
     width: 10em
     height: auto
     border: 1px solid black
+    border-radius: 5px
 
 .ticker *
     text-align: center
@@ -46,21 +48,24 @@
     font-weight: bold
     text-align: center
 
-.ticker-price
-    display: flex
+.ticker > .ticker-price
+    display: grid
+    grid-template-rows: 100%
+    grid-template-columns: 30% 50%
+    justify-items: end
 
 .ticker-price-pct
-    width: 20%
+    padding-left: 0.15em
 
 .ticker-price-value
-    width: 80%
+    padding-right: 0.15em
 
 .ticker-volume
     display: flex
 
 .ticker-volume-label
     width: 20%
-    font-size: 0.75em
+    font-size: 0.8em
 
 .ticker-volume-value
     width: 80%

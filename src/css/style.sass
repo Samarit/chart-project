@@ -9,7 +9,7 @@
 $base-color: rgba(0, 0, 0, 1)
 $text-color: white
 $up-color: rgba(25, 255, 0, 1)
-$down-color: rgba(255, 25, 0, 1)
+$down-color: rgba(255, 66, 0, 1)
 
 *
   box-sizing: border-box
@@ -24,6 +24,7 @@ body
   display: flex
   flex-direction: column
   align-items: center
+  justify-content: center
   position: fixed
   top: 2px
   right: 2px
@@ -43,7 +44,6 @@ body
 
 // Media query
 
-@media (min-width: 768px),(min-resolution: 192dpi)
-
+@media (min-width: 768px)
   #app
-    font-size: 20px
+    font-size: 12px
