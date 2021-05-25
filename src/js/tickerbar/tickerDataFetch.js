@@ -5,16 +5,23 @@ export default async function tickerDataFetch(ticker) {
         const fetched = await fetch(`api/binance/tickerData/${ticker.dataset.id}`)
         const data = await fetched.json()
 
+        const pricePct = ticker.querySelector('.ticker-price-pct')
         const priceValue = ticker.querySelector('.ticker-price-value')
         const volumeValue = ticker.querySelector('.ticker-volume-value')
-        const pricePct = ticker.querySelector('.ticker-price-pct')
 
         colorSwitcher(ticker, data.priceChangePercent)
 
-        priceValue.innerText = Number(data.lastPrice)
-        volumeValue.innerText = Number(data.volume)
         pricePct.innerText = Number(data.priceChangePercent)
+        priceValue.innerText = Number(data.lastPrice)
+        volumeValue.innerText = volumeFormatter(data.quoteVolume)
+
     } catch (e) {
         console.log(new Error(e))
     }
+}
+
+function volumeFormatter(data) {
+    let value = +data.split('.')[0]
+    
+    return value.toLocaleString()
 }

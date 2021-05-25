@@ -11,7 +11,7 @@ export default function socketTicker(ticker, pair) {
         const data = JSON.parse(message.data)
         pricePct.innerText = Number(data.P).toFixed(1) + '%' // 24h price changing for pair
         priceValue.innerText = Number(data.c) // Last price for pair
-        volumeValue.innerText = Number(data.q).toFixed(1) // 24h quote volume
+        volumeValue.innerText = volumeFormatter(data.q) // 24h quote volume
 
         colorSwitcher(ticker, data.P)
     }
@@ -19,4 +19,10 @@ export default function socketTicker(ticker, pair) {
     socket.onerror = function(err) {
         console.log(err)
     }
+}
+
+function volumeFormatter(data) {
+    let value = +data.split('.')[0]
+    
+    return value.toLocaleString()
 }
