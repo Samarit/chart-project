@@ -5,6 +5,7 @@ const CanvasJS = require('./canvasjs.stock.min.js')
 const container = document.getElementById('chart-container')
 let chartHeight = container.offsetHeight
 
+
 const risingColor = '#7d7'
 const fallingColor = 'red'
 const gridColor = '#C9BDA5'
@@ -22,7 +23,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
         zoomEnabled: true,
         title: {
             text: 'Chart',
-            fontSize: chartState.fontSize * 1.5
+            fontSize: chartState.fontSize * 1.75
         },
         height: chartHeight * 0.69,
         axisX: {
