@@ -1,4 +1,5 @@
 import colorSwitcher from "../colorSwitcher"
+import volumeFormatter from "../volumeFormatter"
 
 export default function socketTicker(ticker, pair) {
     const socket = new WebSocket(`wss://stream.binance.com:9443/ws/${pair}@ticker`)
@@ -21,8 +22,3 @@ export default function socketTicker(ticker, pair) {
     }
 }
 
-function volumeFormatter(data) {
-    let value = +data.split('.')[0]
-    
-    return value.toLocaleString()
-}

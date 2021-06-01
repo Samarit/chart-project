@@ -1,4 +1,5 @@
 import colorSwitcher from "./colorSwitcher"
+import volumeFormatter from "./volumeFormatter"
 
 export default async function tickerDataFetch(ticker) {
     try {
@@ -20,8 +21,3 @@ export default async function tickerDataFetch(ticker) {
     }
 }
 
-function volumeFormatter(data) {
-    let value = +data.split('.')[0]
-    
-    return value.toLocaleString()
-}
