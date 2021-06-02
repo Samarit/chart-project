@@ -14,7 +14,7 @@ const tickerbar = document.getElementById('tickerbar')
 const tickers = tickerbar.children
 const tickerAdd = document.getElementById('ticker-add')
 
-
+// Initializing chart render
 updateChart()
 
 timeBar.addEventListener('click', chartTimeHandler)
@@ -26,7 +26,15 @@ for (const ticker of tickers) {
 }
 tickerAdd.addEventListener('click', tickerAddHandler)
 
+function resizedw(){
+    updateChart()
+}
 
+let doit
+window.onresize = function(){
+  clearTimeout(doit);
+  doit = setTimeout(resizedw, 100);
+};
 
 
 
