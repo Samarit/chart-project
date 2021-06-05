@@ -50,7 +50,9 @@ function _titleUpdater (symbol) {
     symbolEnd = symbol.slice(slicePos)
 
     chartCandle.options.charts[0].title.text = `${symbolStart}/${symbolEnd}`
-
+    let fontSize = getComputedStyle(document.getElementById('app')).fontSize
+    console.log(fontSize)
+    //chartCandle.options.charts[0].title.fontSize = +fontSize.slice(0, fontSize.length - 2) * 2
 }
 
 function resetBtnHandler() {
@@ -58,3 +60,5 @@ function resetBtnHandler() {
     chartCandle.sessionVariables._axisXMax = chartState.viewMaxDefault
     chartCandle.render()
 }
+
+window.mychart = chartCandle
