@@ -23,7 +23,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             zoomEnabled: true,
             title: {
                 text: 'Chart',
-                fontSize: chartState.fontSize * 1.65
+                fontSize: chartState.fontSize * 2
             },
             height: chartHeight * 0.69,
             axisX: {
