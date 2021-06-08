@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=production node app.js",
     "server": "nodemon app.js",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"webpack serve --mode development\"",
-    "build": "webpack --mode production"
+    "build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "keywords": [
     "js",
@@ -19,7 +19,8 @@
   "dependencies": {
     "config": "^3.3.2",
     "express": "^4.17.1",
-    "node-binance-api": "^0.12.2"
+    "node-binance-api": "^0.12.2",
+    "cross-env": "^7.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.4",
