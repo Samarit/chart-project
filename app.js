@@ -6,7 +6,7 @@ const path = require('path')
 
 const port = config.get("port") || 80
 
-app.listen(port, (req, res) => {
+app.listen(80, (req, res) => {
     console.log(`Server is running on port ${port}`);
 })
 
