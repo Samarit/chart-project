@@ -98,12 +98,6 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
     rangeSelector: {
         enabled: false
     },
-    rangeChanging: function(e) {
-        console.log('rangeChanging ', e)
-    },
-    rangeChanged: function(e) {
-        console.log('rangeChanged ', e)
-    },
     navigator: {
         enabled: true,
         dynamicUpdate: false

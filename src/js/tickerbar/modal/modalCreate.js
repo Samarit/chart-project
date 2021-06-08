@@ -13,7 +13,7 @@ const modalCreate = function(buttons = []) {
         },
         close() {
             $modal.classList.remove('modal-open')
-            $modal.classList.add('hide')
+            $modal.classList.add('hide') //Class for animate close action
             setTimeout(() => {
                 $modal.classList.remove('hide')
                 overlay.removeEventListener('click', closeModal)
@@ -24,7 +24,7 @@ const modalCreate = function(buttons = []) {
     }
 }
 
-function noop() {} //// Empty function for buttons if there no handlers given
+function noop() {} // Empty function for buttons if there no handlers given
 
 Element.prototype.appendAfter = function (element) { // All elements now have this method
     element.parentNode.insertBefore(this, element.nextSibling) // Taken from stackoverflow.com

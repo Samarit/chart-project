@@ -7,7 +7,6 @@ export default function chartTimeHandler(event) {
     if (event.target === this) return false
 
     const buttons = document.querySelectorAll('#chart-timebar > button')
-    console.log(typeof buttons,buttons)
     buttons.forEach(btn => {
         btn.classList.remove('active')
     })

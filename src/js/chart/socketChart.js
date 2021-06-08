@@ -1,12 +1,12 @@
-import { chartCandle } from "../../chart.models.js/chart";
-import chartState from "../../chart.models.js/chartState";
+import { chartCandle } from "../../chart.models.js/chart"
+import chartState from "../../chart.models.js/chartState"
 
 export default function socketChart() {
     let socket = {}
 
     return {
         open() {
-            socket.close && socket.close()
+            socket.close && socket.close() // If socket already opened (have close method) => close existing socket
             socket = new WebSocket(`wss://stream.binance.com:9443/ws/${chartState.symbol.toLowerCase()}@kline_${chartState.timeframe}`)
             socket.onmessage = _onMsg
         }
@@ -14,7 +14,6 @@ export default function socketChart() {
 }
 
 function _onMsg(message) {
-
     const data = JSON.parse(message.data)
 
     let datapointsChart = chartCandle.charts[0].options.data[0].dataPoints
@@ -33,10 +32,8 @@ function _onMsg(message) {
     datapointsVolume[datapointsVolume.length - 1].y = Number(data.k.v) // data.k.q for quote volume
     datapointsVolume[datapointsVolume.length - 1].color = chng > 0 ? '#7d7' : 'red'
 
-
     // If kline closed - push new candlestick to datapoints
     if (data.k.x) {
-
         datapointsChart.shift()
         datapointsVolume.shift()
         datapointsRSI.shift()

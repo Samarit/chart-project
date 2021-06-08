@@ -8,12 +8,12 @@ const loader = document.getElementById('loader')
 
 export default async function updateChart() {
     try {
-        loader.style.display = 'flex'
+        loader.style.display = 'flex' 
 
         const data = await getChartData()
+
         pushChartDatapoints(data)
 
-        
         _titleUpdater(chartState.symbol)
         
         chartCandle.render()
@@ -21,7 +21,6 @@ export default async function updateChart() {
         chartState.viewMinDefault = chartCandle._axisXMin
         chartState.viewMaxDefault = chartCandle._axisXMax
 
-        
         const resetBtn = document.getElementById('reset-btn')
         resetBtn.removeEventListener('click', resetBtnHandler)
         resetBtn.addEventListener('click', resetBtnHandler)
@@ -29,9 +28,6 @@ export default async function updateChart() {
         loader.style.display = 'none'
 
         socket.open()
-        
-        console.log('Chart state: ' ,chartState)
-        
     } catch (error) {
         console.log(error)
     }
@@ -57,5 +53,3 @@ function resetBtnHandler() {
     chartCandle.sessionVariables._axisXMax = chartState.viewMaxDefault
     chartCandle.render()
 }
-
-window.mychart = chartCandle

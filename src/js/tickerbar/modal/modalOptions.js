@@ -1,3 +1,5 @@
+// Collection of symbols for creating select pairs
+
 const modalNames = [
     [
         'ADA',

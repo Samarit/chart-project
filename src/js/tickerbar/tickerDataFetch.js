@@ -12,7 +12,7 @@ export default async function tickerDataFetch(ticker) {
 
         colorSwitcher(ticker, data.priceChangePercent)
 
-        pricePct.innerText = Number(data.priceChangePercent)
+        pricePct.innerText = Number(data.priceChangePercent).toFixed(1) + '%'
         priceValue.innerText = Number(data.lastPrice)
         volumeValue.innerText = volumeFormatter(data.quoteVolume)
 
