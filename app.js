@@ -4,9 +4,9 @@ const config = require('config')
 const path = require('path')
 
 
-const port = config.get("port") || 80
+const port = config.get("port") || '7777'
 
-app.listen(1111, (req, res) => {
+app.listen(port, '0.0.0.0', (req, res) => {
     console.log(`Server is running on port ${port}`);
 })
 
