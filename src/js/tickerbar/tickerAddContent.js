@@ -1,7 +1,7 @@
-export default function tickerAddContent (value1, value2) {
+export default function tickerAddContent(value1, value2) {
     return `
     <div class="ticker-title">
-        <div class="ticker-logo"></div>
+        <div class="ticker-logo" ></div>
         <div class="ticker-label">${value1.toUpperCase()}/${value2.toUpperCase()}</div>
     </div>
     <div class="ticker-price">

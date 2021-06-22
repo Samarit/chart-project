@@ -6,7 +6,7 @@ import tickerDataFetch from "./tickerDataFetch"
 
 const tickerbar = document.getElementById('tickerbar')
 
-export function tickerAddHandler (event) {
+export function tickerAddHandler(event) {
     event.preventDefault()
 
     tickerCreateModal()
@@ -15,7 +15,7 @@ export function tickerAddHandler (event) {
             const select2 = document.querySelector('[data-select-secondary]')
             const value1 = select1.value.toLowerCase()
             const value2 = select2.value.toLowerCase()
-            
+
             if (value1 === value2) { return false }
 
             let ticker = document.createElement('div')
@@ -26,7 +26,7 @@ export function tickerAddHandler (event) {
             ticker.innerHTML = tickerAddContent(value1, value2)
 
             const logo = ticker.querySelector('.ticker-logo')
-            const url = `../../assets/icons/${value1.toUpperCase()}.svg`
+            const url = `/assets/icons/${value1.toUpperCase()}.svg`
             logo.style.backgroundImage = `url(${url})`
 
             ticker.addEventListener('click', tickerClickHandler)
@@ -39,4 +39,4 @@ export function tickerAddHandler (event) {
         .catch((error) => {
             console.log(error)
         })
-} 
+}
