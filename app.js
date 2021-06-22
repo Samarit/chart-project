@@ -3,8 +3,7 @@ const app = express()
 const config = require('config')
 const path = require('path')
 
-
-const port = config.get("port") || '7777'
+const port = process.env.NODE_ENV === 'production' ? process.env.PORT : config.get("port") || '7777'
 
 app.listen(port, '0.0.0.0', (req, res) => {
     console.log(`Server is running on port ${port}`);
