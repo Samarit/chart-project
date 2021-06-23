@@ -60,7 +60,7 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
                 lineThickness: 0
             },
             axisY: {
-                //labelFontSize: 0,
+                labelFontSize: chartState.fontSize,
                 gridColor: gridColor
             },
             data: [{
@@ -73,20 +73,17 @@ export const chartCandle = new CanvasJS.StockChart('chart-container', {
             title: '',
             height: chartHeight * 0.13,
             axisY: {
-                gridColor: gridColor,
-                //stripLines: [{
-                //    startValue: 30,
-                //    endValue: 70,
-                //    color: 'grey'
-                //}],
-                //minimum: 0,
-                //maximum: 100
+                gridColor: gridColor
             },
             axisX: {
                 title: "",
                 tickLength: 0,
                 margin: 0,
-                lineThickness: 0
+                lineThickness: 0,
+                labelFontSize: chartState.fontSize
+            },
+            axisY: {
+                labelFontSize: chartState.fontSize
             },
             data: [{
                 type: 'line',

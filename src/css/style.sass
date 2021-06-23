@@ -16,6 +16,9 @@ $down-color: rgba(255, 66, 0, 1)
   margin: 0 0
   padding: 0 0
 
+html
+  font-size: 10px
+
 body
   background-color: $base-color
   color: $text-color
@@ -30,7 +33,6 @@ body
   right: 2px
   bottom: 2px
   left: 2px
-  font-size: 10px
   max-width: 1600px
   margin: 0 auto
 
@@ -45,13 +47,12 @@ body
 // Media query
 
 @media (min-width: 768px)
-  #app
-    font-size: 12px
+  html
+    font-size: 14px
 
 @media screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2)
-  #app
+  html
     font-size: 16px
-
   @media screen and (min-width: 1200px )
-    #app
-      font-size: 16px
+    html
+      font-size: 20px

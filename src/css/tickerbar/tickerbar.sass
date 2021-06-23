@@ -1,13 +1,14 @@
 #tickerbar-wrapper
     display: flex
     justify-content: start
+    align-items: end
     overflow-x: scroll
     scrollbar-width: thin
     scrollbar-color: silver black
 
 #tickerbar-wrapper::-webkit-scrollbar
     background-color: black
-    height: 0.5em
+    height: 0.5rem
 
 #tickerbar-wrapper::-webkit-scrollbar-thumb
     background-color: silver
@@ -19,10 +20,10 @@
     display: flex
     flex-direction: column
     justify-content: space-around
-    width: 10em
-    height: 10em
-    font-size: 1.1em
-    border: 1px solid black
+    width: 9.5rem
+    height: 9.5rem
+    font-size: 1rem
+    border: 2px solid black
     border-radius: 5px
 
 .ticker *
@@ -34,14 +35,14 @@
     align-items: center
     width: 100%
     height: calc( 100% / 3 )
-    padding: 0.5em
+    padding: 0.5rem
 
 .ticker-title
     display: flex
 
 .ticker-logo
-    width: 2em
-    height: 2em
+    width: 2rem
+    height: 2rem
     border-radius: 50%
     background-color: white
 
@@ -51,35 +52,33 @@
     text-align: center
 
 .ticker > .ticker-price
-    display: grid
-    grid-template-rows: 100%
-    grid-template-columns: 30% 50%
-    justify-items: end
-    padding: 0 0.15em
+    display: flex
+    justify-content: space-around
+    padding: 0 0.15rem
 
 .ticker-price-pct
     justify-self: start
 
 .ticker-volume-label
     width: 20%
-    font-size: 0.8em
+    font-size: 0.8rem
 
 .ticker-volume-value
     width: 80%
 
 #ticker-add
-    flex: 0 0 10em
+    flex: 0 0 10rem
     display: flex
     align-items: center
 
 #add-icon
-    width: 5em
-    height: 5em
+    width: 5rem
+    height: 5rem
     background-image: url('../../assets/icons/TICKER-ADD.svg')
 
 //Media queries
 
 @media ( min-width: 768px )
     .ticker
-        width: 10em
-        font-size: 1.1em
+        width: 10rem
+        font-size: 1rem

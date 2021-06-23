@@ -1,12 +1,12 @@
-let appFont = getComputedStyle(document.getElementById('app')).fontSize
+let htmlFont = getComputedStyle(document.getElementsByTagName('html')[0]).fontSize
 
-appFont = +appFont.slice(0, appFont.length - 2) // Cutting 'px' from string and bring it to Number
+htmlFont = +htmlFont.slice(0, htmlFont.length - 2) // Cutting 'px' from string and bring it to Number
 
 let chartState = {
     symbol: 'BNBUSDT',
     timeframe: '1m',
     limit: 300,
-    fontSize: appFont
+    fontSize: htmlFont
 }
 
 export default chartState
