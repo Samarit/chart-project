@@ -4,7 +4,7 @@ htmlFont = +htmlFont.slice(0, htmlFont.length - 2) // Cutting 'px' from string a
 
 let chartState = {
     symbol: 'BNBUSDT',
-    timeframe: '1m',
+    timeframe: '1h',
     limit: 300,
     fontSize: htmlFont
 }

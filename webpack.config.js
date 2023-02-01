@@ -1,13 +1,13 @@
 const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     filename: 'bundle.[chunkhash].js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
+    assetModuleFilename: 'assets/[contenthash][ext][query]',
+    clean: true,
   },
   devServer: {
     host: '0.0.0.0',
@@ -22,12 +22,6 @@ module.exports = {
     new HTMLPlugin({
       template: './src/index.html'
     }),
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: 'assets', to: 'assets' }
-      ]
-    })
   ],
   module: {
     rules: [
@@ -39,10 +33,14 @@ module.exports = {
           "sass-loader",
           "postcss-loader"
         ],
-      }, {
+      }, 
+      {
         test: /\.(svg|jpg|png|gif)$/,
-        use: ['file-loader']
-      }
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[hash][ext]'
+        }
+      },
     ],
   }
 }
